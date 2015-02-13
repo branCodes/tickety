@@ -28,7 +28,7 @@
   private
 
   def ticket_params
-    params.require(:tickets).permit(:title, :description)
+    params.require(:ticket).permit(:title, :description)
   end
 
 end
