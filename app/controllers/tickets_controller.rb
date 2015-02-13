@@ -1,7 +1,8 @@
-class TicketsController < ApplicationController
+ class TicketsController < ApplicationController
 
-  # def index
-  # end
+  def index
+    @tickets = Ticket.order(:title)
+  end
 
   def new
     @ticket = Ticket.new  
@@ -9,6 +10,14 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new ticket_params
+    @ticket.user = current_user
+    if @ticket.save 
+      redirect_to tickets_path
+    else 
+      flash[:alert] = "Ticket was not created!"
+      render :new
+    end
+
   end
 
   def destroy
