@@ -1,11 +1,11 @@
 <h1>Ticket Request</h1>
 
- <h3>Title: <%= @ticket.title %></h1>
+<h3>Title: <%= @ticket.title %></h1>
 <h3>Description: <%= @ticket.description %></h3>
-   <%= link_to "Edit Ticket?", edit_ticket_path, class: "btn btn-primary btn-xs" %>
-  <%= link_to "Delete?", @ticket, class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
- <% if @ticket.status == true %>
-        <%= link_to "Resolved", toggle_ticket_status_path(@ticket), method: :patch, class: "btn btn-success btn-xs" %>
-      <% elsif @ticket.status == false %>
-        <%= link_to "Unresolved", toggle_ticket_status_path(@ticket), method: :patch, class: "btn btn-warning btn-xs" %>
-      <% end %>
+<%= link_to "Edit Ticket?", edit_ticket_path, class: "btn btn-primary btn-xs" %>
+<%= link_to "Delete?", @ticket, class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+<% if @ticket.status == true %>
+  <%= link_to "Resolved", toggle_ticket_status_path(@ticket), method: :patch, class: "btn btn-success btn-xs" %>
+<% else %>
+  <%= link_to "Unresolved", toggle_ticket_status_path(@ticket), method: :patch, class: "btn btn-warning btn-xs" %>
+<% end %>

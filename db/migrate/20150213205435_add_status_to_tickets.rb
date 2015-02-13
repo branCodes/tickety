@@ -3,3 +3,4 @@ class AddStatusToTickets < ActiveRecord::Migration
     add_column :tickets, :status, :boolean
   end
 end
+

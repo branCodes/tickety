@@ -11,6 +11,7 @@
   def create
     @ticket = Ticket.new ticket_params
     #@ticket.user = current_user
+    @ticket.status = false
     if @ticket.save
       redirect_to tickets_path, notice: "Ticket created!"
     else 
