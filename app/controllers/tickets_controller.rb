@@ -43,20 +43,16 @@
     end 
   end
 
-   # def toggle_status
-   #  @ticket = Ticket.find params[:id]
-   #  if @ticket.status == false && @task.user != current_user
-   #    TaskMailer.delay.notify_task_owner(@task)
-   #    @task.status = true
-   #  elsif @task.status == false
-   #    @task.status = true
-   #  elsif @task.status == true
-   #    @task.status = false
-   #  end
-   #  @task.save
-   #  respond_with ()
-   #  #redirect_to project_path(@task.project_id)
-  # end
+   def toggle_status
+    @ticket = Ticket.find params[:id]
+    if @ticket.status == false 
+      @ticket.status = true
+    elsif @ticket.status == true
+      @ticket.status = false
+    end
+    @ticket.save
+    redirect_to @ticket
+  end
 
   private
 
